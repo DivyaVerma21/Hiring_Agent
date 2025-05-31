@@ -1,7 +1,7 @@
 import streamlit as st
-import random # Used for simulating confidence scores
+import random
 
-# --- Streamlit App Configuration ---
+
 st.set_page_config(
     page_title="REM Waste: English Accent Detector",
     page_icon="🎤",
@@ -9,64 +9,28 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- App Title and Description ---
 st.title("🎤 English Accent Detector for Hiring")
-st.markdown("""
-Welcome to the REM Waste Accent Analysis Tool!
-This application helps evaluate spoken English from video URLs for hiring purposes.
-Enter a public video URL (e.g., Loom, direct MP4 link) below to get started.
 
-**Note:** In this simulated environment, actual video-to-audio extraction and
-advanced accent detection are not performed. The results shown are illustrative.
-For a real-world application, you would integrate libraries like `moviepy`
-(for audio extraction) and a robust machine learning model/API (for accent detection).
-""")
 
-# --- Input Section ---
 video_url = st.text_input(
     "Enter Public Video URL:",
     placeholder="e.g., https://www.loom.com/share/your-video-id or https://example.com/video.mp4"
 )
 
-# --- Analysis Button ---
+
 if st.button("Analyze Accent"):
     if video_url:
         st.subheader("Analysis in Progress...")
         st.info(f"Attempting to process video from: `{video_url}`")
 
-        # --- Simulated Audio Extraction ---
         st.markdown("---")
         st.write("1. **Simulating Audio Extraction...**")
         st.write("*(In a real application, this step would use `moviepy` or `ffmpeg` to extract audio.)*")
-        # Placeholder for actual audio extraction logic
-        # Example:
-        # try:
-        #     from moviepy.editor import VideoFileClip
-        #     video = VideoFileClip(video_url)
-        #     audio_path = "extracted_audio.mp3"
-        #     video.audio.write_audiofile(audio_path)
-        #     st.success(f"Audio extracted to: {audio_path}")
-        #     # Proceed with accent analysis on audio_path
-        # except Exception as e:
-        #     st.error(f"Error during audio extraction: {e}")
-        #     st.stop() # Stop execution if extraction fails
-
         st.success("Audio extraction simulated successfully!")
         st.markdown("---")
 
-        # --- Simulated Accent Analysis ---
         st.write("2. **Simulating Accent Analysis...**")
         st.write("*(In a real application, this step would involve a pre-trained ML model or an external API.)*")
-        # Placeholder for actual accent detection logic
-        # Example:
-        # from your_accent_model import AccentDetector
-        # detector = AccentDetector()
-        # accent_result = detector.analyze(audio_path)
-        # accent_classification = accent_result.classification
-        # confidence_score = accent_result.confidence
-
-        # --- Simulated Results ---
-        # Generate random accent and confidence for demonstration
         possible_accents = [
             "American English",
             "British English",
@@ -83,7 +47,6 @@ if st.button("Analyze Accent"):
         st.success("Accent analysis simulated successfully!")
         st.markdown("---")
 
-        # --- Output Section ---
         st.subheader("📊 Analysis Results:")
 
         st.markdown(f"### Detected Accent: **{classified_accent}**")
@@ -105,7 +68,6 @@ if st.button("Analyze Accent"):
     else:
         st.warning("Please enter a video URL to analyze.")
 
-# --- Footer ---
 st.markdown("---")
-st.caption("REM Waste - Intelligent Hiring Tools")
+st.caption("AI Hiring Agent")
 
